@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошка или Собака</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Кошка или Собака?</h1>
+            <p>Загрузите фото</p>
+        </header>
+
+        <div class="main-content">
+            <!-- зона для перетаскивания файлов -->
+            <div class="upload-area" id="dropZone">
+                <div class="upload-content">
+                    <h3>Перетащите фото сюда</h3>
+                    <p>или</p>
+                    <button class="btn btn-primary" id="selectFileBtn">Выбрать файл</button>
+                    <!-- скрытый инпут, через него будем открывать диалог выбора файла -->
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
+                </div>
+            </div>
+
+            <!-- блок с превью и результатом, изначально скрыт -->
+            <div class="preview-area" id="previewArea" style="display: none;">
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <img id="previewImg" alt="Предпросмотр">
+                    </div>
+                    <div class="result-card" id="resultCard">
+                        <div class="result-label" id="resultLabel">---</div>
+                        <div class="confidence-bar">
+                            <!-- шкала уверенности, ширина будет меняться через js -->
+                            <div class="confidence-fill" id="confidenceFill" style="width: 0%"></div>
+                        </div>
+                        <div class="confidence-text" id="confidenceText">Уверенность: 0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- блок истории предсказаний -->
+            <div class="history-section">
+                <div class="history-header">
+                    <h2>История</h2>
+                    <button class="btn-clear" id="clearHistoryBtn">Очистить</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- сюда js подгрузит историю -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

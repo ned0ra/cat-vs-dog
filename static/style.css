@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Upload Area */
+.upload-area {
+    background: white;
+    border-radius: 20px;
+    padding: 60px 20px;
+    text-align: center;
+    border: 3px dashed #ddd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-area.drag-over {
+    border-color: #667eea;
+    background: #f0f0ff;
+}
+
+.upload-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.upload-area h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Preview Area */
+.preview-area {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.preview-card {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.preview-image {
+    flex: 1;
+    min-width: 250px;
+}
+
+.preview-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.result-card {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.result-label {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.result-label.cat {
+    background: #ffe0f0;
+    color: #d63384;
+}
+
+.result-label.dog {
+    background: #e0f0ff;
+    color: #0d6efd;
+}
+
+.confidence-bar {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    background: linear-gradient(90deg, #28a745, #20c997);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-weight: bold;
+    transition: width 0.5s ease;
+}
+
+.confidence-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* History Section */
+.history-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.history-header h2 {
+    color: #333;
+}
+
+.btn-clear {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn-clear:hover {
+    background: #c82333;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+    background: #e9ecef;
+}
+
+.history-filename {
+    font-weight: 600;
+    color: #495057;
+    flex: 2;
+}
+
+.history-prediction {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.history-prediction.cat {
+    color: #d63384;
+}
+
+.history-prediction.dog {
+    color: #0d6efd;
+}
+
+.history-confidence {
+    flex: 1;
+    text-align: center;
+    color: #28a745;
+    font-weight: 600;
+}
+
+.history-time {
+    flex: 2;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .preview-card {
+        flex-direction: column;
+    }
+    
+    .history-item {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .history-filename,
+    .history-time {
+        flex: 100%;
+        text-align: left;
+    }
+}
