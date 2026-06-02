@@ -24,7 +24,8 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-Обучи модель (если нет готовой):
+Обучи модель:
+```
 python train.py
 ```
 Запусти сервер:
@@ -42,7 +43,6 @@ python app.py
 
 Структура
 ```
-.
 app.py              # основной сервер
 train.py            # обучение модели
 models/             # сохраненная модель
