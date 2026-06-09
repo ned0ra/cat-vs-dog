@@ -24,6 +24,15 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+```
+tensorflow==2.15.0
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+pillow==10.1.0
+jinja2==3.1.2
+numpy==1.24.3
+```
 Обучи модель:
 ```
 python train.py
